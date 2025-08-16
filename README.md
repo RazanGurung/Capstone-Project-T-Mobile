@@ -1,4 +1,4 @@
-T-Mobile Customer Churn Prediction
+📱 T-Mobile Churn Prediction – Capstone Project
 
 
 
@@ -6,6 +6,36 @@ T-Mobile Customer Churn Prediction
 
 
 
+
+🌐 Live Demo
+
+🔗 Try the App on Render
+
+📖 Project Overview
+
+This project is a Capstone Machine Learning Solution focused on predicting customer churn for T-Mobile.
+
+Designed a complete ML pipeline (data preprocessing → model training → evaluation → deployment).
+
+Built a Flask API with endpoints for prediction and health checks.
+
+Developed a user-friendly form interface for manual customer input and churn risk prediction.
+
+Deployed the system seamlessly on Render Cloud Platform.
+
+The project not only demonstrates technical ability in machine learning & full-stack deployment, but also highlights business impact by enabling telecom companies to proactively identify at-risk customers.
+
+🚀 Features
+
+✅ Machine Learning API – endpoints /predict, /predict_proba, /health
+
+✅ Web Form – enter customer data manually for real-time predictions
+
+✅ Threshold-based classification – optimized at 0.48 to balance Precision–Recall
+
+✅ Performance evaluation – ROC–AUC, confusion matrix, metrics reporting
+
+✅ Cloud Deployment – production-ready using Flask + Waitress + Render
 
 📊 Model Performance
 
@@ -16,135 +46,87 @@ T-Mobile Customer Churn Prediction
 
 
 
-🚀 Live Demo
+Detailed Metrics:
 
-🔗 Try the App Here
+Metric	Value
+Accuracy	74%
+Precision (Churn class)	0.51
+Recall (Churn class)	0.81
+ROC–AUC	0.84
 
-Endpoints available:
+Test set size: 1,409 samples (374 churn, 1,035 non-churn)
 
-/health → API health check
+Threshold chosen: 0.48 (optimized via precision–recall trade-off)
 
-/predict → JSON churn prediction
+Confusion Matrix @ 0.48:
 
-/predict_proba → churn probability
+True Negatives = 740
 
-/form → interactive web form
+False Positives = 295
 
-✨ Key Features
+False Negatives = 72
 
-🔎 Exploratory Data Analysis (EDA)
+True Positives = 302
 
-Identified churn trends across contract type, payment method, and monthly charges.
+🛠️ Tech Stack
 
-Discovered high-risk customer groups (e.g., month-to-month contracts, electronic check payments).
+Programming: Python (3.9+)
 
-🧠 Machine Learning Models
+ML Libraries: scikit-learn, pandas, numpy
 
-Logistic Regression (final model), Random Forest, SVM, Gradient Boosting.
+Serving: Flask, Waitress
 
-Balanced classes using SMOTE to avoid bias.
+Frontend: HTML, CSS (form UI)
 
-Final model achieved: ROC–AUC: 0.84, Recall: 0.81, Accuracy: 74%.
+Deployment: Render Cloud
 
-🛠 Production-Ready REST API
-
-Health check, churn prediction, churn probability.
-
-User-friendly web form for manual entry.
-
-🎨 Web Form UI
-
-Modern styled form for customer input.
-
-Instant churn prediction results.
-
-⚙️ Deployment on Render
-
-Served with Gunicorn + Waitress for stability.
-
-Scalable and cloud-ready.
-
-📊 Insights from the Data
-
-Customers on month-to-month contracts churn much more often than those with long-term plans.
-
-Electronic check payments strongly correlate with churn.
-
-Customers with short tenure (< 1 year) are most at risk.
-
-Targeted retention (discounts, contracts, payment changes) could reduce churn by >20%.
-
-🏗 Project Architecture
+📂 Project Structure
 Capstone_T_mobile_Churn_Prediction/
-│── api/
-│   ├── app.py          # Flask app with endpoints
-│   ├── wsgi.py         # Entry point for Gunicorn/Render
-│   └── templates/      # HTML form
-│── models/
-│   └── churn_model.pkl # Trained Logistic Regression model
-│── notebooks/
-│   └── eda_modeling.ipynb # EDA + ML notebook
-│── requirements.txt    # Dependencies
-│── Procfile            # For Render deployment
-│── README.md           # This file
+│
+├── api/
+│   ├── app.py          # Flask application (API + form routes)
+│   ├── wsgi.py         # WSGI entrypoint for deployment
+│   ├── templates/
+│   │   └── form.html   # Frontend HTML form
+│   └── static/         # (Optional) CSS/JS assets
+│
+├── models/             # Serialized ML model(s)
+├── notebooks/          # Jupyter notebooks (EDA & experiments)
+├── requirements.txt    # Python dependencies
+└── README.md           # Project documentation
 
-⚡ Run Locally
+📈 Business Impact
 
-Clone the repo:
+🎯 Early Risk Detection: Helps T-Mobile identify high-risk churn customers.
 
-git clone https://github.com/yourusername/Capstone_T_mobile_Churn_Prediction.git
-cd Capstone_T_mobile_Churn_Prediction
+💡 Data-Driven Retention: Enables targeted offers and better resource allocation.
+
+📉 Reduce Loss: Even a 5% churn reduction can save millions in revenue.
+
+▶️ Getting Started (Local Run)
+
+Clone the Repository
+
+git clone https://github.com/<your-username>/t-mobile-churn-prediction.git
+cd t-mobile-churn-prediction
 
 
-Create & activate virtual environment:
-
-python -m venv venv
-source venv/bin/activate   # Mac/Linux
-venv\Scripts\activate      # Windows
-
-
-Install dependencies:
+Install Dependencies
 
 pip install -r requirements.txt
 
 
-Run API locally:
+Run with Waitress
 
 python -m waitress --listen=127.0.0.1:5050 api.wsgi:app
 
 
-Access:
+Visit in Browser
 
-http://127.0.0.1:5050/form → Form UI
+http://127.0.0.1:5050/form
 
-http://127.0.0.1:5050/predict → API
-
-🔮 Future Enhancements
-
-Add explainability with SHAP/LIME.
-
-Build churn monitoring dashboards (Streamlit / Power BI).
-
-Containerize with Docker for portability.
-
-Automate retraining with fresh customer data.
-
-🎯 Why This Project Matters
-
-Telecom churn = multi-billion-dollar problem.
-This project demonstrates:
-
-End-to-end ML workflow: data → model → API → deployment.
-
-Skills in data science, MLOps, and web development.
-
-Business impact: targeted retention strategies = millions in saved revenue.
-
-👨‍💻 Author
+🧑‍💻 Author
 
 Rajan Gurung
-Data Scientist | ML Engineer | Financial & Telecom Analytics Enthusiast
-
-📌 LinkedIn • Portfolio • Email
-
-⭐ If you found this project helpful, don’t forget to star the repo!
+📍 Data Scientist | ML Engineer | AI Solutions Developer
+🔗 LinkedIn:  | Portfolio | razangurung2147@gmail.com
